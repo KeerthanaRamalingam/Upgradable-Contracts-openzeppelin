@@ -6,6 +6,7 @@ let Box, box
 describe('Box (proxy)', function () {
   beforeEach(async function () {
     Box = await ethers.getContractFactory("Box")
+    console.log("Boxa address", Box);
     box = await upgrades.deployProxy(Box, [42], { initializer: 'store' })
   })
   it('retrieve returns a value previously initialized', async function () {
